@@ -1,0 +1,690 @@
+/* Custom Animations for Tailwind CSS */
+
+/* Float Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float-delayed {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float {
+    animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float-delayed 10s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Scroll Pulse Animation */
+@keyframes scrollPulse {
+    0%, 100% {
+        opacity: 0;
+        transform: rotate(-45deg) translateY(-10px);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(-45deg) translateY(0);
+    }
+}
+
+.animate-scroll-pulse {
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* Fade Up Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUpDelay1 {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUpDelay2 {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.animate-fade-up-delay-1 {
+    animation: fadeUpDelay1 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.animate-fade-up-delay-2 {
+    animation: fadeUpDelay2 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+/* Shimmer Effect for Dividers */
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(232, 92, 58, 0.8), 
+        rgba(16, 185, 129, 0.8), 
+        transparent);
+    animation: shimmer 4s infinite;
+}
+
+/* Nav Link Underline Effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #E85C3A, #F59E0B);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Active nav link styles */
+.nav-link.active {
+    color: #E85C3A;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    background: linear-gradient(90deg, #E85C3A, #F59E0B);
+}
+
+/* Section Title Underline Animation */
+.section-title.animate-line::after {
+    width: 100px !important;
+}
+
+/* Scroll Progress Bar Width */
+.scroll-progress {
+    width: 0;
+}
+
+/* Enhanced Section Styles */
+.who-we-are-section,
+.what-we-do-section {
+    position: relative;
+}
+
+/* Service Card Enhanced Styles */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+/* Enhanced Responsive Behavior */
+@media (max-width: 1024px) {
+    .service-card {
+        margin-bottom: 1rem;
+    }
+    
+    .who-we-are-section,
+    .what-we-do-section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .who-we-are-section,
+    .what-we-do-section {
+        padding: 3rem 1rem;
+    }
+    
+    .service-card {
+        padding: 2rem;
+    }
+    
+    /* Stack cards vertically on mobile */
+    .service-card h4 {
+        font-size: 1.5rem;
+    }
+    
+    .service-card p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .who-we-are-section,
+    .what-we-do-section {
+        padding: 2rem 0.75rem;
+    }
+}
+
+/* Enhanced Typography Contrast */
+.service-card h4,
+.who-we-are-section h3,
+.what-we-do-section h3 {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Improved Focus States for Accessibility */
+.service-card:focus,
+.service-card:focus-within {
+    outline: 2px solid #2FA57A;
+    outline-offset: 2px;
+}
+
+/* Enhanced Hover Effects */
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Smooth Section Transitions */
+.who-we-are-section,
+.what-we-do-section {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced Gradient Animations */
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.what-we-do-section {
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+/* ===== ENHANCED HERO SECTION ANIMATIONS ===== */
+
+/* Animated Gradient for Hero Title */
+@keyframes animatedGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Background Blob Animations */
+@keyframes blobFloat1 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    33% {
+        transform: translate(15px, -25px) rotate(5deg) scale(1.05);
+    }
+    66% {
+        transform: translate(-10px, 20px) rotate(-3deg) scale(0.95);
+    }
+}
+
+@keyframes blobFloat2 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translate(-20px, -15px) rotate(-8deg) scale(1.08);
+    }
+    75% {
+        transform: translate(25px, 10px) rotate(4deg) scale(0.92);
+    }
+}
+
+@keyframes blobFloat3 {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    40% {
+        transform: translate(-45%, -55%) rotate(6deg) scale(1.1);
+    }
+    80% {
+        transform: translate(-55%, -45%) rotate(-4deg) scale(0.9);
+    }
+}
+
+@keyframes scrollDot {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(16px);
+        opacity: 0;
+    }
+}
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+}
+
+/* Animated Gradient Title */
+.hero-title {
+    background: linear-gradient(-45deg, #E85C3A, #F59E0B, #2FA57A, #1E3A8A, #E85C3A);
+    background-size: 400% 400%;
+    animation: animatedGradient 8s ease infinite, fadeInUp 0.8s ease forwards;
+    animation-delay: 0s, 0.2s;
+}
+
+/* Content Animations with Staggered Timing */
+.hero-subtitle {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.hero-description {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.hero-quote {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.hero-buttons {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Background Blobs */
+.blob-1 {
+    animation: blobFloat1 20s ease-in-out infinite;
+}
+
+.blob-2 {
+    animation: blobFloat2 25s ease-in-out infinite;
+}
+
+.blob-3 {
+    animation: blobFloat3 30s ease-in-out infinite;
+}
+
+/* Enhanced CTA Buttons */
+.cta-button {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button:hover {
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+/* Button Ripple Effect */
+.button-ripple.active {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
+
+/* Navbar Scroll Effect */
+#navbar {
+    backdrop-filter: blur(0px);
+    background: transparent;
+}
+
+#navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Card Animations */
+@keyframes teamCardFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0.5deg);
+    }
+}
+
+@keyframes profileImagePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(249, 115, 22, 0);
+    }
+}
+
+@keyframes skillTagsSlide {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Team Card Hover Effects */
+.team-card {
+    animation: teamCardFloat 6s ease-in-out infinite;
+}
+
+.team-card:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.team-card:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.team-card:hover {
+    animation-play-state: paused;
+}
+
+/* Enhanced Profile Image Effects */
+.team-card .relative > div {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.team-card:hover .relative > div {
+    animation: profileImagePulse 2s infinite;
+}
+
+/* Skill Tags Animation */
+.team-card:hover .flex.flex-wrap {
+    animation: skillTagsSlide 0.5s ease-out forwards;
+}
+
+.team-card:hover .flex.flex-wrap span {
+    animation: skillTagsSlide 0.3s ease-out forwards;
+}
+
+.team-card:hover .flex.flex-wrap span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.team-card:hover .flex.flex-wrap span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Decorative Elements Animation */
+@keyframes floatDecoration {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    33% {
+        transform: translateY(-3px) rotate(120deg);
+        opacity: 0.6;
+    }
+    66% {
+        transform: translateY(2px) rotate(240deg);
+        opacity: 0.4;
+    }
+}
+
+.team-card .absolute.top-4,
+.team-card .absolute.bottom-4 {
+    animation: floatDecoration 4s ease-in-out infinite;
+}
+
+.team-card .absolute.bottom-4 {
+    animation-delay: 2s;
+    animation-direction: reverse;
+}
+
+/* Enhanced Gradient Background Animation */
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.team-card:hover .absolute.inset-0 {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .blob-1,
+    .blob-2,
+    .blob-3 {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero-title {
+        background-size: 300% 300%;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    /* Reduce team card animations on mobile for performance */
+    .team-card {
+        animation: none;
+    }
+    
+    .team-card:hover .relative > div {
+        animation: none;
+    }
+    
+    /* Simplify mobile team cards */
+    .team-card .relative > div {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Simplify work culture animations on mobile */
+    .value-item {
+        animation: none;
+    }
+    
+    .value-item .w-20.h-20 {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Work Culture Section Animations */
+@keyframes valueCardFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(0.5deg);
+    }
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+@keyframes progressFill {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes backgroundPulse {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Value Cards Hover Effects */
+.value-item {
+    animation: valueCardFloat 6s ease-in-out infinite;
+}
+
+.value-item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.value-item:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.value-item:nth-child(3) {
+    animation-delay: 3s;
+}
+
+.value-item:nth-child(4) {
+    animation-delay: 4.5s;
+}
+
+.value-item:hover {
+    animation-play-state: paused;
+}
+
+/* Icon Animation */
+.value-item:hover .w-20.h-20 {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+/* Progress Bar Animation */
+.value-item:hover .w-16.h-1 > div {
+    animation: progressFill 0.8s ease-out forwards;
+}
+
+/* Enhanced Decorative Elements for Work Culture */
+.value-item .absolute.top-4,
+.value-item .absolute.bottom-4 {
+    animation: floatDecoration 5s ease-in-out infinite;
+}
+
+.value-item .absolute.bottom-4 {
+    animation-delay: 2.5s;
+    animation-direction: reverse;
+}
+
+/* Background Gradient Animation for Values */
+.value-item:hover .absolute.inset-0 {
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+}
+
+/* Section Background Decorative Animation */
+#values .absolute.w-32,
+#values .absolute.w-40,
+#values .absolute.w-48 {
+    animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+#values .absolute.w-40 {
+    animation-delay: 2s;
+}
+
+#values .absolute.w-48 {
+    animation-delay: 4s;
+}
