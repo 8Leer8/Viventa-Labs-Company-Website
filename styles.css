@@ -500,6 +500,59 @@
     animation-delay: 0.2s;
 }
 
+/* ===== NAVBAR LOGO COIN SPIN ANIMATION ===== */
+@keyframes logoSpin {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+#navbar img {
+    animation: logoSpin 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+/* ===== TEAM MODAL STYLES ===== */
+
+/* Hide modal scrollbar */
+#team-modal-content {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+#team-modal-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Optimized modal transitions - hardware accelerated */
+#team-modal {
+    will-change: opacity, visibility;
+}
+
+#team-modal-content {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Enhanced team card hover effect */
+.team-card {
+    cursor: pointer;
+    user-select: none;
+    will-change: transform;
+}
+
+.team-card:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.team-card:active {
+    transform: translateY(-4px) scale(0.98);
+}
+
 /* Decorative Elements Animation */
 @keyframes floatDecoration {
     0%, 100% {
